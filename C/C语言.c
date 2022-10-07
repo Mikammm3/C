@@ -235,3 +235,28 @@
 //
 //	return 0;
 //}
+//#include<string.h>
+//#include<stdio.h>
+//int main()
+//{
+//	int ch=getchar();//接收一个字符
+//	putchar(ch);//输出一个字符
+//	return 0;
+//}
+#include<string.h>
+#include<stdio.h>
+int main()
+{
+	int input = 0;
+	printf("加入比特之后，你打算好好学习吗(1/0)>:");
+	scanf_s("%d",&input);
+	if (1 == input)
+		printf("好offer");
+	else
+		printf("卖红薯");
+
+	return 0;
+}
+
+
+
