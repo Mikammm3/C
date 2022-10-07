@@ -220,17 +220,18 @@
 //	return 0;
 //
 //}
-#include<stdio.h>
-int main()
-{
-	int i = 0;
-	while (i <= 10)
-	{
-		continue;//结束continue之后的代码，跳到switch语句继续循环
-		printf("%d\n", i);
-		i++;
-	}
-
-
-	return 0;
-}
+//#include<stdio.h>
+//int main()
+//{
+//	int i = 0;
+//	while (i <= 10)
+//	{
+//		if(5==i)
+//		continue;//结束continue之后的代码，跳到switch语句继续循环
+//		printf("%d\n", i);
+//		i++;
+//	}
+//
+//
+//	return 0;
+//}
