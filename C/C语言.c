@@ -243,17 +243,79 @@
 //	putchar(ch);//输出一个字符
 //	return 0;
 //}
-#include<string.h>
+//#include<string.h>
+//#include<stdio.h>
+//int main()
+//{
+//	int input = 0;
+//	printf("加入比特之后，你打算好好学习吗(1/0)>:");
+//	scanf_s("%d",&input);
+//	if (1 == input)
+//		printf("好offer");
+//	else
+//		printf("卖红薯");
+//
+//	return 0;
+////}
+
+
+//#include<stdio.h>
+//#include<math.h>
+//#include<string.h>
+//
+//int main()
+//{
+//
+//	int ret = 0;
+//	int ch = 0;
+//	char password[20] = {0};
+//	printf("请输入密码\n");
+//	scanf_s("%s\n",&password,20);
+//	while((ch=getchar())!='\n');//清除缓冲区的\n
+//	{
+//		;
+//	}
+//	printf("请确认密码(Y/N)>:\n");
+//	ret=getchar();
+//	if (ret == ' Y')
+//
+//		printf("确认成功\n");
+//
+//	else if (ret == 'N')
+//		printf("放弃确认\n");
+//	else
+//		printf("error\n");
+//	return 0;
+//}
+
+
+
+//int main()
+//{
+//	//运算p，书上习题
+//
+//	float r = 0.1;
+//	int n = 10;
+//	float p = pow(1+r,n);
+//	printf("%f",p);
+//	return 0;
+//
+//}
+
+
 #include<stdio.h>
+#include<math.h>
+#include<string.h>
+
 int main()
 {
-	int input = 0;
-	printf("加入比特之后，你打算好好学习吗(1/0)>:");
-	scanf_s("%d",&input);
-	if (1 == input)
-		printf("好offer");
-	else
-		printf("卖红薯");
+	int ch = 0;
+	while ((ch = getchar()) != EOF)//按ctrl+z结束循环
+	{
+		if (ch < '0' || ch>'9')
+			continue;
+		putchar(ch);
+	}
 
 	return 0;
 }
