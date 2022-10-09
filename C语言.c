@@ -303,22 +303,196 @@
 //}
 
 
+//#include<stdio.h>
+//#include<math.h>
+//#include<string.h>
+//
+//int main()
+//{
+//	int ch = 0;
+//	while ((ch = getchar()) != EOF)//按ctrl+z结束循环
+//	{
+//		if (ch < '0' || ch>'9')
+//			continue;
+//		putchar(ch);
+//	}
+//
+//	return 0;
+//}
+
+
+//打印1-10
 #include<stdio.h>
 #include<math.h>
 #include<string.h>
+#include<stdlib.h>
+#include<windows.h>
+
+
+
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1 ; i <= 10 ; i++)
+//	{//  初始化      判断   调整 
+//		if (5 == i)
+//			continue;//取消执行continue下面的代码，跳到for语句，
+//		             //break则跳出for循环
+//		printf("%d\n",i);
+//
+//	}
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+////没敲到想要的结果，但是运行程序看起来很牛逼的错误代码
+// 计算n的阶乘
+//int main()
+//{
+//	int z = 0;
+//	int i = 1;
+//	for (i = 1; i >= i; i++)
+//	{
+//		z = i * (i + 1);
+//		printf("%d ",z);
+//	}
+//	return 0;
+//}
+
+
+
+
+// 计算a的阶乘
+
+//int main()
+//{
+//	int a = 0;
+//	scanf_s("%d\n",&a);
+//	int b = 0;
+//	int c = 1;
+//	for (b = 1; b <= a; b++)
+//	{
+//		c = b * c;
+//
+//	}
+//	printf("%d\n",c);
+//
+//	return 0;
+//}
+
+
+
+//计算1！+2！+3！+....+10！
+//思路：先求出一个数的阶乘，再利用循环求出每个数的阶乘，最后将阶乘相加
+//      1*2*3*4*....*n
+
+
+//int main()
+//{
+//	int a = 0;
+//	int n = 0;
+//	int b = 1;
+//	int sum = 0;
+//	for (n = 1; n <= 10; n++)
+//	{
+//		b = 1;
+//		for (a = 1; a <= n; a++)
+//		{
+//			b = a * b;
+//
+//		}
+//		sum = sum + b;
+//	}
+//	printf("%d\n",sum);
+//	return 0;
+//}
+
+//简洁版:
+//int main()
+//{
+//	int i = 0;
+//	int n = 0;
+//	int a = 1; 
+//	int sum = 0;
+//		for (n = 1; n <= 10; n++)
+//		{
+//			a = a * n;
+//			sum = sum + a;
+//
+//		}
+//		printf("%d\n",sum);
+//	return 0;
+//}
+
+
+
+//二分查找法:
+
+
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int k = 7;//找坐标7
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int left = 0;
+//	int right = sz - 1;
+//
+//	while (left <= right)
+//	{
+//		int mid = (left + right) / 2;
+//		if (arr[mid] < k)
+//		{
+//			left = mid + 1;
+//		}
+//		else if (arr[mid] > k)
+//		{
+//			right = mid - 1;
+//		}
+//		else
+//		{
+//			printf("找到了，下标是:%d\n", mid);
+//			break;
+//		}
+//	}
+//	if (left > right)
+//		printf("找不到\n");
+//
+//	return 0;
+//}
+
 
 int main()
 {
-	int ch = 0;
-	while ((ch = getchar()) != EOF)//按ctrl+z结束循环
+	char arr1[] = "#######################################";
+	char arr2[] = "HEY!!! YOU!!! WELCOME   TO   A521!!!!!!";
+	int left = 0;
+	//int sz = (sizeof(arr1) / sizeof(arr1[0]));
+	int right = strlen(arr1) - 1;
+	while (left <= right)
 	{
-		if (ch < '0' || ch>'9')
-			continue;
-		putchar(ch);
+		arr1[left] = arr2[left];
+		arr1[right] = arr2[right];
+		printf("%s\n", arr1);
+		Sleep(1000);//休息1s      引用windows.h
+		system("cls");//清空屏幕     引用stdlib.h
+		left++;
+		right--;
 	}
+
+	printf("%s\n", arr1);
+	
+
 
 	return 0;
 }
+
 
 
 
