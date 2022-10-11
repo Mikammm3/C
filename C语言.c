@@ -327,6 +327,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<windows.h>
+#include<time.h>
 
 
 
@@ -468,30 +469,727 @@
 //}
 
 
-int main()
-{
-	char arr1[] = "#######################################";
-	char arr2[] = "HEY!!! YOU!!! WELCOME   TO   A521!!!!!!";
-	int left = 0;
-	//int sz = (sizeof(arr1) / sizeof(arr1[0]));
-	int right = strlen(arr1) - 1;
-	while (left <= right)
-	{
-		arr1[left] = arr2[left];
-		arr1[right] = arr2[right];
-		printf("%s\n", arr1);
-		Sleep(1000);//休息1s      引用windows.h
-		system("cls");//清空屏幕     引用stdlib.h
-		left++;
-		right--;
-	}
+//int main()
+//{
+//	char arr1[] = "#######################################";
+//	char arr2[] = "HEY!!! YOU!!! WELCOME   TO   A521!!!!!!";
+//	int left = 0;
+//	//int sz = (sizeof(arr1) / sizeof(arr1[0]));
+//	int right = strlen(arr1) - 1;
+//	while (left <= right)
+//	{
+//		arr1[left] = arr2[left];
+//		arr1[right] = arr2[right];
+//		printf("%s\n", arr1);
+//		Sleep(1000);//休息1s      引用windows.h
+//		system("cls");//清空屏幕     引用stdlib.h
+//		left++;
+//		right--;
+//	}
+//
+//	printf("%s\n", arr1);
+//	
+//
+//
+//	return 0;
+//}
 
-	printf("%s\n", arr1);
+
+
+
+
+//int main()
+//{
+//	char password[] = {0};
+//	scanf_s(" %s ", &password,20);
+//	if (strcmp(password, "123456") == 0)//  ==  不能用来判断两个字符串是否相同，应该使用strcmp
+//		printf("登陆成功\n");                               // 语法：strcmp(    ,"   ")
+//	return 0;
+//}
+
+
+//练习1.将三个数从大到小输出
+
+//#define MAX(X,Y)(X>Y?X:Y)
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	scanf_s("%d,%d,%d", &a, &b, &c);
+//	int max1 = MAX(a, b);
+//	int max2 = MAX(b, c);
+//	int max3 = MAX(a, c);
+//	if (max1 == max2 && a > c)
+//		printf("%d>%d>%d", max1, a, c);
+//	else if (max1 == max2 && a < c)
+//		printf("%d>%d>%d", max1, c, a);
+//	else if (max1 == max3 && b > c)
+//		printf("%d>%d>%d", max3, b, c);
+//	else if (max1 == max3 && b < c)
+//		printf("%d>%d>%d", max3, c, b);
+//	else if (max2 == max3 && b > a)
+//		printf("%d>%d>%d", max2, b, a);
+//	else
+//		printf("%d>%d>%d", max2, a, b);
+//
+//	return 0;
+//}
+
+
+
+
+//更正练习1：
+
+
+//比大小题目：先打印，再排序
+//逻辑：a就放最大值，b次之，c就是放最小值
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 0;
+//	scanf_s("%d%d%d",&a,&b,&c);
+//	if (a < b)
+//	{
+//		int tmp = a;
+//		a = b;//将a，b的值交换
+//		b = tmp;
+//	}
+//	if (a < c)
+//	{
+//		int tmp = a;
+//		a = c;//将a，c的值交换
+//		c = tmp;
+//
+//	}
+//	if (b < c)
+//	{
+//		int tmp = b;
+//		b = c;//将b，c的值交换
+//		c = tmp;
+//	}
+//	//以上操作保证a为最大值，b次之，c为最小值
+//
+//
+//	printf("%d,%d,%d\n",a,b,c);
+//	return 0;
+//}
+
+
 	
 
+//练习2.1-100,打印三的倍数的数
 
+//int main()
+//{
+//	int i = 0;
+//	for (i = 1;i<=100; i++)
+//	{
+//		if ((i % 3) == 0)
+//			printf("%d ",i);
+//	}
+//
+//
+//	return 0;
+//}
+
+
+
+//练习3.随便给2个数，求这两个数的最大公约数
+
+
+/*int main()
+{
+	
+	int m = 0;
+	int n = 0;
+	scanf_s("%d%d",&m,&n);
+	if (m > n)
+	{
+		int i = m % n;
+		if (i == 0)
+			printf("最大公约数为%d", n);
+		if (i != 0)
+		{
+			for (i;; i++)
+			{
+				if (m % i == 0 && n % i == 0)
+					printf("最大公约数为%d", i);
+			}
+		}
+	}
+	if (m < n)
+	{
+		int i = n % m;
+		if (i == 0)
+			printf("最大公约数为%d",m);
+		if (i != 0)
+		{
+			for (i;; i++)
+			{
+				if (m % i == 0 && n % i == 0)
+					printf("最大公约数为%d", i);
+			}
+		}
+	}
+	if (m==n)
+		printf("最大公约数为%d", n);
+	return 0;
+}*/
+
+
+
+
+
+//简洁版：辗转相除法
+
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	scanf_s("%d%d",&a,&b);
+//	int r = 0;
+//	while (a % b)
+//	{
+//		r = a % b;
+//		a = b;
+//		b = r;
+//
+//	}
+//	printf("最大公约数：%d\n",b);
+//
+//	return 0;
+//}
+
+//练习3.打印1000-2000的闰年
+//判断闰年：
+//    1.能被4整除但不能被100整除
+//    2.能被400整除
+
+
+//int main()
+//{
+//	int a = 1000;
+//	for (a = 1000; a <= 2000; a++)
+//	{
+//		if (a % 4 == 0 && a % 100 != 0)
+//			printf("%d ", a);
+//		if (a % 400 == 0)
+//			printf("%d ", a);
+//
+//
+//	}
+//	return 0;
+//}
+
+
+
+
+//简洁版：
+
+//int main()
+//{
+//	int year = 0;
+//	for (year = 1000; year <= 2000; year++)
+//	{
+//		if ((year % 4 == 0)&&(year % 100 != 0) || (year % 400 == 0))
+//			printf("%d ", year);
+//
+//	}
+//
+//
+//	return 0;
+//}
+
+
+
+
+
+//练习4.打印100-200的素数
+// 素数
+//方法:试除法：
+//一个个去除
+
+
+//int main()
+//{
+//	int count = 0;
+//	int j = 0;
+//	int i = 0;
+//	for (i = 100; i <= 200; i++)
+//	{
+//		for (j = 2; j < i; j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				break;
+//			}
+//		}
+//
+//		if (i == j)
+//		{
+//			count++;
+//			printf("%d ", i);
+//		}
+//	}
+//	printf("\ncount=%d", count);
+//	return 0;
+//}
+
+
+//简洁版：打印100-200的素数
+//  i=a*b
+//假设：i=16=2*8=4*4
+//所以：i的约数<=i开根号
+
+
+
+
+//int main()
+//{
+//	int j = 0;
+//	int i = 0;
+//	for (i = 100; i <200; i++)
+//	{
+//		for (j = 2; j <= sqrt(i); j++)
+//		{
+//			if (i % j == 0)
+//			{
+//				break;
+//			}
+//
+//		}
+//
+//		if (j > sqrt(i))
+//		{
+//			printf("%d ",i);
+//		}
+//	}
+//	return 0;
+//}
+
+
+//练习5.分数求和
+//计算1/1-1/2+1/3-1/4+1/5.......+1/99-1/100的值
+
+
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		if (i % 2 != 0)
+//		{
+//			j = j+(1 / i);
+//		}
+//		if (i % 2 == 0)
+//		{
+//			j = j - (1 / i);
+//		}
+//		//两个整数相除，得到的也是整数，                            如1/2=0  -->  1/i==0
+//		//如果想要两个整数相除得到小数,那么只要两个整数中有一个小数即可，则改为  1.0/i!=0
+//	}
+//
+//	printf("sum=%d\n", j);
+//
+//	return 0;
+//}
+
+
+
+
+
+//更正练习5，分数求和
+
+
+//int main()
+//{
+//	int i = 0;
+//	float j = 0.0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		if (i % 2 != 0)
+//		
+//			j = j + (1.0 / i);
+//		
+//		if (i % 2 == 0)
+//		
+//			j = j - (1.0 / i);
+//		
+//		
+//	}
+//
+//	printf("sum=%f\n", j);
+//
+//	return 0;
+//}
+
+
+
+
+//简洁版：
+
+//int main()
+//{
+//	int i = 0;
+//	int flag = 1;
+//	double sum = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		sum +=flag*(1.0 / i);
+//		flag = -flag;
+//
+//	}
+//
+//	printf("sum=%f\n", sum);
+//
+//	return 0;
+//}
+
+
+//练习6.求最大值
+//求10个整数中的最大值
+//思路：定义一个数组，随便取数，假设为1-10；求数组中的最大值
+//再定义一个max，将数组中的数一 一与max比较，判断谁更大，将值赋值给max
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	int max = arr[0];
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 1; i < sz ; i++)
+//	{
+//		if (max < arr[i])
+//			max = arr[i];
+//
+//	}
+//	printf("max=%d", max);
+//	return 0;
+//}
+
+
+//练习7.乘法口诀表
+//在屏幕上输出9*9乘法口诀表
+
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int z = 0;
+//	for (i = 1; i < 10; i++)
+//	{
+//		if (i == 1)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 2)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 3)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 4)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 5)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 6)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 7)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 8)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else 
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//	}
+//	return 0;
+//}
+
+
+
+
+//尝试简化：
+
+
+
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int z = 0;
+//	for (i = 1; i < 10; i++)
+//	{
+//		for (j = 1; j < 10; j++)
+//		{
+//			z = i * j;
+//			printf("%d*%d=%d\n",i,j,z);
+//
+//		}
+//
+//	}
+//
+//	return 0;
+//}
+
+
+//简洁版：
+
+
+//int  main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 1; i < 10; i++)
+//	{
+//		for (j = 1; j <= i; j++)
+//		{
+//			printf("%d*%d=%-2d ", i, j, i * j);
+//			//在%与d中放数字表示打印n位的数字，如%2d，表示打印2位数字，不够的用空格补上，并向右边对齐
+//			//%-2d  同上，向左对齐
+//
+//		}
+//		printf("\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+//练习8.二分查找，在整型有序数组中查找一个数，找到了输出找到了，下标是   没找到输出找不到
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	scanf_s("%d", &i);
+//	int left = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int right = sz - 1;
+//	int mid = 0;
+//	while (left <= right)
+//	{
+//		mid = (left + right) / 2;
+//		if (arr[mid] < i)
+//
+//			left = mid + 1;
+//
+//		else if (arr[mid] > i)
+//
+//			right = mid - 1;
+//
+//
+//		else
+//		{
+//			printf("找到了，下标是：%d\n", mid);
+//			break;
+//		}
+//	}
+//	if (left > right)
+//
+//		printf("找不到\n");
+//
+//
+//	return 0;
+//}
+
+
+//     多复习阶乘的计算！！！！
+//计算1！+2!+3!+.....+10!
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 1;
+//	int d = 0;
+//	for (b = 1; b <= 10; b++)
+//	{
+//		int c = 1;
+//		for (a = 1;a<=b; a++)
+//		{
+//			c = c * a;
+//
+//		}
+//		d = d + c;
+//	}
+//
+//	printf("sum=%d\n", d);
+//	return 0;
+//
+//}
+
+
+//int main()
+//{
+//	char arr[] = { 0 };
+//	scanf_s("%s", &arr,20);
+//	int i = 1;
+//	while (i <= 3)
+//	{
+//		scanf_s("%s", &arr, 20);
+//		if (strcmp(arr, "123456") == 0)
+//			printf("登陆成功\n");
+//		else
+//			printf("密码错误\n");
+//		i++;
+//	}
+//	printf("退出登录\n");
+//	return 0;
+//}
+
+
+//猜数字小游戏
+//思路
+//1.菜单
+//2.游戏
+
+
+void menu()//设置菜单
+{
+	printf("**************************************\n");
+	printf("******   1.play      0.exit     ******\n"); 
+	printf("**************************************\n");
+	printf("请注意：\n1.该游戏数字的猜测范围是1-100\n2.按1开始游戏\n3.按0退出游戏\n4.祝您游戏愉快 ^o^\n");
+}
+
+void game()//设置游戏
+{
+	
+	int intput = 0;
+	int ret = 0;
+	game:
+	printf("欢迎进入游戏\n");
+	printf("游戏即将开始\n");
+	Sleep(2000);
+	ret=rand()%100+1;//设置随机数字范围
+	printf("请猜一个数字>:\n");
+	scanf_s("%d", &intput);
+	while (intput)
+	{
+		
+		if (intput > ret)
+		{
+			printf("猜大了\n");
+			
+		}
+		else if (intput < ret)
+		{
+			printf("猜小了\n");
+			
+		}
+		else
+		{
+			printf("恭喜你！猜对了！\n");
+			Sleep(3000);
+			printf("如果你想继续游戏，请按1\n如果你想退出游戏，请按0\n请输入>:");
+			scanf_s("%d", &intput);
+			if (intput == 1)
+				goto game;
+			if (intput == 0)
+				break;
+		}
+		scanf_s("%d", &intput);
+	}
+}
+
+int main()
+{
+	menu();//调用菜单
+	int intput = 0;
+	srand((unsigned int)time(NULL));//设置随机数的一个起点
+	scanf_s("%d",&intput);
+	
+	while (intput)
+	{
+		
+		if (intput == 1)
+		{
+			game();//调用游戏
+			break;
+		}
+		
+		else if(intput!=0)
+		{
+			
+			int i = 0;
+			for (i = 0; i < 3; i++)
+			{
+				printf("输入错误\n");
+				scanf_s("%d", &intput);
+				if (intput == 1)
+					game();
+				if (intput == 0)
+				{
+					printf("退出游戏\n");
+					break;
+				}
+			}
+			break;
+		}
+	}
+
+	system("cls");
+	if (intput == 0)
+		
+		printf("退出游戏\n");
+		
+		
 	return 0;
 }
+
 
 
 
