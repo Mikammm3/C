@@ -1097,100 +1097,269 @@
 //2.游戏
 
 
-void menu()//设置菜单
+//void menu()//设置菜单
+//{
+//	printf("**************************************\n");
+//	printf("******   1.play      0.exit     ******\n"); 
+//	printf("**************************************\n");
+//	printf("请注意：\n1.该游戏数字的猜测范围是1-100\n2.按1开始游戏\n3.按0退出游戏\n4.祝您游戏愉快 ^o^\n");
+//}
+//
+//void game()//设置游戏
+//{
+//	
+//	int intput = 0;
+//	int ret = 0;
+//	game:
+//	printf("欢迎进入游戏\n");
+//	printf("游戏即将开始\n");
+//	Sleep(2000);
+//	ret=rand()%100+1;//设置随机数字范围
+//	printf("请猜一个数字>:\n");
+//	scanf_s("%d", &intput);
+//	while (intput)
+//	{
+//		
+//		if (intput > ret)
+//		{
+//			printf("猜大了\n");
+//			
+//		}
+//		else if (intput < ret)
+//		{
+//			printf("猜小了\n");
+//			
+//		}
+//		else
+//		{
+//			printf("恭喜你！猜对了！\n");
+//			Sleep(3000);
+//			printf("如果你想继续游戏，请按1\n如果你想退出游戏，请按0\n请输入>:");
+//			scanf_s("%d", &intput);
+//			if (intput == 1)
+//				goto game;
+//			if (intput == 0)
+//				break;
+//		}
+//		scanf_s("%d", &intput);
+//	}
+//}
+//
+//int main()
+//{
+//	menu();//调用菜单
+//	int intput = 0;
+//	srand((unsigned int)time(NULL));//设置随机数的一个起点
+//	scanf_s("%d",&intput);
+//	
+//	while (intput)
+//	{
+//		
+//		if (intput == 1)
+//		{
+//			game();//调用游戏
+//			break;
+//		}
+//		
+//		else if(intput!=0)
+//		{
+//			
+//			int i = 0;
+//			for (i = 0; i < 3; i++)
+//			{
+//				printf("输入错误\n");
+//				scanf_s("%d", &intput);
+//				if (intput == 1)
+//					game();
+//				if (intput == 0)
+//				{
+//					printf("退出游戏\n");
+//					break;
+//				}
+//			}
+//			break;
+//		}
+//	}
+//
+//	system("cls");
+//	if (intput == 0)
+//		
+//		printf("退出游戏\n");
+//		
+//		
+//	return 0;
+//}
+
+
+
+//尝试简化
+//猜数字
+//1.菜单
+//2.游戏
+
+//void menu()//记得menu前面带空啊
+//{
+//	printf("*********************************************\n");
+//	printf("******     1.play       0.exit         ******\n");
+//	printf("*********************************************\n");
+//	printf("请注意：\n1.按1开始游戏\n2.按0退出游戏\n3.游戏猜数字的范围是1-100\n4.祝您游戏愉快！^o^\n");
+//}
+//
+//void game()
+//{
+//	int ret = 0;
+//	ret = rand() % 100 + 1;
+//	int a = 0;
+//	printf("欢迎进入游戏！\n游戏即将开始\n");
+//		Sleep(2000);
+//	while (1)
+//	{
+//		
+//		printf("请输入一个数字>:\n");
+//		scanf_s("%d", &a);
+//		if (a > ret)
+//			printf("猜大了\n");
+//		else if (a < ret)
+//			printf("猜小了\n");
+//		else
+//			printf("恭喜你！猜对啦！！！\n");
+//	}
+//
+//
+//}
+//
+//
+//
+//int main()
+//{
+//	menu();
+//	int intput = 0;
+//	srand((unsigned int)time(NULL));
+//	do
+//	{
+//		printf("请选择>:\n");
+//		scanf_s("%d", &intput);
+//		switch (intput)
+//		{
+//		case 1:
+//			game();
+//
+//		case 0:
+//			break;
+//
+//		default:
+//			printf("输入错误\n");
+//			break;
+//
+//		}
+//	} while (intput);
+//
+//	printf("退出游戏\n");
+//
+//	return 0;
+//}
+
+
+//坑室友小利器，哈哈哈哈哈哈哈哈哈
+
+
+//int main()
+//{
+//	printf("温馨提示：\n您的电脑将会在一分钟内关机，如果输入：我是猪，将取消关机\n");
+//	system("shutdown -s -t 60");
+//	char intput[] = { 0 };
+//	while (1)
+//	{
+//		printf("请输入（笑）>:\n");
+//		scanf_s("%s", &intput, 20);
+//		if (strcmp(intput, "我是猪") == 0)
+//		{
+//			system("shutdown -a");
+//			break;
+//		}
+//	}
+//
+//	return 0;
+//}
+
+
+
+//自定义函数
+
+
+
+//int get_max(int x, int y)
+//{
+//	if (x > y)
+//		return x;
+//	else
+//		return y;
+//
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int max = get_max(a, b);
+//	printf("max=%d\n",max);
+//	return 0;
+//}
+
+
+//交换
+//错误版：
+
+//void swap(int x, int y)
+//{
+//	int tmp = 0;
+//	tmp = x;
+//	x = y;
+//	y = tmp;
+//	//x，y的值确实交换了，但是x，y和a，b没有半毛钱关系
+//	//所以运行结果a，b的值并不会交换
+//
+//}
+//
+//
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前，a为%d,b为%d\n",a,b);
+//	swap(a, b);
+//	printf("交换后，a为%d,b为%d\n",a,b);
+//
+//
+//
+//	return 0;
+//}
+
+
+//更正版
+
+void swap(int*pa, int*pb)
 {
-	printf("**************************************\n");
-	printf("******   1.play      0.exit     ******\n"); 
-	printf("**************************************\n");
-	printf("请注意：\n1.该游戏数字的猜测范围是1-100\n2.按1开始游戏\n3.按0退出游戏\n4.祝您游戏愉快 ^o^\n");
+	int tmp = 0;
+	tmp = *pa;
+	*pa = *pb;
+	*pb = tmp;
 }
 
-void game()//设置游戏
-{
-	
-	int intput = 0;
-	int ret = 0;
-	game:
-	printf("欢迎进入游戏\n");
-	printf("游戏即将开始\n");
-	Sleep(2000);
-	ret=rand()%100+1;//设置随机数字范围
-	printf("请猜一个数字>:\n");
-	scanf_s("%d", &intput);
-	while (intput)
-	{
-		
-		if (intput > ret)
-		{
-			printf("猜大了\n");
-			
-		}
-		else if (intput < ret)
-		{
-			printf("猜小了\n");
-			
-		}
-		else
-		{
-			printf("恭喜你！猜对了！\n");
-			Sleep(3000);
-			printf("如果你想继续游戏，请按1\n如果你想退出游戏，请按0\n请输入>:");
-			scanf_s("%d", &intput);
-			if (intput == 1)
-				goto game;
-			if (intput == 0)
-				break;
-		}
-		scanf_s("%d", &intput);
-	}
-}
+
+
 
 int main()
 {
-	menu();//调用菜单
-	int intput = 0;
-	srand((unsigned int)time(NULL));//设置随机数的一个起点
-	scanf_s("%d",&intput);
-	
-	while (intput)
-	{
-		
-		if (intput == 1)
-		{
-			game();//调用游戏
-			break;
-		}
-		
-		else if(intput!=0)
-		{
-			
-			int i = 0;
-			for (i = 0; i < 3; i++)
-			{
-				printf("输入错误\n");
-				scanf_s("%d", &intput);
-				if (intput == 1)
-					game();
-				if (intput == 0)
-				{
-					printf("退出游戏\n");
-					break;
-				}
-			}
-			break;
-		}
-	}
+	int a = 10;
+	int b = 20;
+	printf("交换前，a为%d，b为%d\n",a,b);
 
-	system("cls");
-	if (intput == 0)
-		
-		printf("退出游戏\n");
-		
-		
+	swap(&a, &b);//别忘记&
+
+	printf("交换后，a为%d，b为%d\n",a,b);
+
+
 	return 0;
 }
-
-
-
-
-
