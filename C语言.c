@@ -327,6 +327,7 @@
 #include<string.h>
 #include<stdlib.h>
 #include<windows.h>
+#include<time.h>
 
 
 
@@ -769,25 +770,735 @@
 //}
 
 
+//练习5.分数求和
+//计算1/1-1/2+1/3-1/4+1/5.......+1/99-1/100的值
+
+
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		if (i % 2 != 0)
+//		{
+//			j = j+(1 / i);
+//		}
+//		if (i % 2 == 0)
+//		{
+//			j = j - (1 / i);
+//		}
+//		//两个整数相除，得到的也是整数，                            如1/2=0  -->  1/i==0
+//		//如果想要两个整数相除得到小数,那么只要两个整数中有一个小数即可，则改为  1.0/i!=0
+//	}
+//
+//	printf("sum=%d\n", j);
+//
+//	return 0;
+//}
 
 
 
-//练习5.1-100中出现多少个数字9
-int main()
+
+
+//更正练习5，分数求和
+
+
+//int main()
+//{
+//	int i = 0;
+//	float j = 0.0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		if (i % 2 != 0)
+//		
+//			j = j + (1.0 / i);
+//		
+//		if (i % 2 == 0)
+//		
+//			j = j - (1.0 / i);
+//		
+//		
+//	}
+//
+//	printf("sum=%f\n", j);
+//
+//	return 0;
+//}
+
+
+
+
+//简洁版：
+
+//int main()
+//{
+//	int i = 0;
+//	int flag = 1;
+//	double sum = 0;
+//	for (i = 1; i <= 100; i++)
+//	{
+//		sum +=flag*(1.0 / i);
+//		flag = -flag;
+//
+//	}
+//
+//	printf("sum=%f\n", sum);
+//
+//	return 0;
+//}
+
+
+//练习6.求最大值
+//求10个整数中的最大值
+//思路：定义一个数组，随便取数，假设为1-10；求数组中的最大值
+//再定义一个max，将数组中的数一 一与max比较，判断谁更大，将值赋值给max
+
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	int max = arr[0];
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 1; i < sz ; i++)
+//	{
+//		if (max < arr[i])
+//			max = arr[i];
+//
+//	}
+//	printf("max=%d", max);
+//	return 0;
+//}
+
+
+//练习7.乘法口诀表
+//在屏幕上输出9*9乘法口诀表
+
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int z = 0;
+//	for (i = 1; i < 10; i++)
+//	{
+//		if (i == 1)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 2)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 3)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 4)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 5)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 6)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 7)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else if (i == 8)
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//		else 
+//		{
+//			for (j = 1; j < 10; j++)
+//			{
+//				z = i * j;
+//				printf("\n%d=%d*%d ", z, i, j);
+//			}
+//		}
+//	}
+//	return 0;
+//}
+
+
+
+
+//尝试简化：
+
+
+
+//int main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	int z = 0;
+//	for (i = 1; i < 10; i++)
+//	{
+//		for (j = 1; j < 10; j++)
+//		{
+//			z = i * j;
+//			printf("%d*%d=%d\n",i,j,z);
+//
+//		}
+//
+//	}
+//
+//	return 0;
+//}
+
+
+//简洁版：
+
+
+//int  main()
+//{
+//	int i = 0;
+//	int j = 0;
+//	for (i = 1; i < 10; i++)
+//	{
+//		for (j = 1; j <= i; j++)
+//		{
+//			printf("%d*%d=%-2d ", i, j, i * j);
+//			//在%与d中放数字表示打印n位的数字，如%2d，表示打印2位数字，不够的用空格补上，并向右边对齐
+//			//%-2d  同上，向左对齐
+//
+//		}
+//		printf("\n");
+//	}
+//
+//	return 0;
+//}
+
+
+
+//练习8.二分查找，在整型有序数组中查找一个数，找到了输出找到了，下标是   没找到输出找不到
+
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int i = 0;
+//	scanf_s("%d", &i);
+//	int left = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int right = sz - 1;
+//	int mid = 0;
+//	while (left <= right)
+//	{
+//		mid = (left + right) / 2;
+//		if (arr[mid] < i)
+//
+//			left = mid + 1;
+//
+//		else if (arr[mid] > i)
+//
+//			right = mid - 1;
+//
+//
+//		else
+//		{
+//			printf("找到了，下标是：%d\n", mid);
+//			break;
+//		}
+//	}
+//	if (left > right)
+//
+//		printf("找不到\n");
+//
+//
+//	return 0;
+//}
+
+
+//     多复习阶乘的计算！！！！
+//计算1！+2!+3!+.....+10!
+//int main()
+//{
+//	int a = 0;
+//	int b = 0;
+//	int c = 1;
+//	int d = 0;
+//	for (b = 1; b <= 10; b++)
+//	{
+//		int c = 1;
+//		for (a = 1;a<=b; a++)
+//		{
+//			c = c * a;
+//
+//		}
+//		d = d + c;
+//	}
+//
+//	printf("sum=%d\n", d);
+//	return 0;
+//
+//}
+
+
+//int main()
+//{
+//	char arr[] = { 0 };
+//	scanf_s("%s", &arr,20);
+//	int i = 1;
+//	while (i <= 3)
+//	{
+//		scanf_s("%s", &arr, 20);
+//		if (strcmp(arr, "123456") == 0)
+//			printf("登陆成功\n");
+//		else
+//			printf("密码错误\n");
+//		i++;
+//	}
+//	printf("退出登录\n");
+//	return 0;
+//}
+
+
+//猜数字小游戏
+//思路
+//1.菜单
+//2.游戏
+
+
+//void menu()//设置菜单
+//{
+//	printf("**************************************\n");
+//	printf("******   1.play      0.exit     ******\n"); 
+//	printf("**************************************\n");
+//	printf("请注意：\n1.该游戏数字的猜测范围是1-100\n2.按1开始游戏\n3.按0退出游戏\n4.祝您游戏愉快 ^o^\n");
+//}
+//
+//void game()//设置游戏
+//{
+//	
+//	int intput = 0;
+//	int ret = 0;
+//	game:
+//	printf("欢迎进入游戏\n");
+//	printf("游戏即将开始\n");
+//	Sleep(2000);
+//	ret=rand()%100+1;//设置随机数字范围
+//	printf("请猜一个数字>:\n");
+//	scanf_s("%d", &intput);
+//	while (intput)
+//	{
+//		
+//		if (intput > ret)
+//		{
+//			printf("猜大了\n");
+//			
+//		}
+//		else if (intput < ret)
+//		{
+//			printf("猜小了\n");
+//			
+//		}
+//		else
+//		{
+//			printf("恭喜你！猜对了！\n");
+//			Sleep(3000);
+//			printf("如果你想继续游戏，请按1\n如果你想退出游戏，请按0\n请输入>:");
+//			scanf_s("%d", &intput);
+//			if (intput == 1)
+//				goto game;
+//			if (intput == 0)
+//				break;
+//		}
+//		scanf_s("%d", &intput);
+//	}
+//}
+//
+//int main()
+//{
+//	menu();//调用菜单
+//	int intput = 0;
+//	srand((unsigned int)time(NULL));//设置随机数的一个起点
+//	scanf_s("%d",&intput);
+//	
+//	while (intput)
+//	{
+//		
+//		if (intput == 1)
+//		{
+//			game();//调用游戏
+//			break;
+//		}
+//		
+//		else if(intput!=0)
+//		{
+//			
+//			int i = 0;
+//			for (i = 0; i < 3; i++)
+//			{
+//				printf("输入错误\n");
+//				scanf_s("%d", &intput);
+//				if (intput == 1)
+//					game();
+//				if (intput == 0)
+//				{
+//					printf("退出游戏\n");
+//					break;
+//				}
+//			}
+//			break;
+//		}
+//	}
+//
+//	system("cls");
+//	if (intput == 0)
+//		
+//		printf("退出游戏\n");
+//		
+//		
+//	return 0;
+//}
+
+
+
+//尝试简化
+//猜数字
+//1.菜单
+//2.游戏
+
+//void menu()//记得menu前面带空啊
+//{
+//	printf("*********************************************\n");
+//	printf("******     1.play       0.exit         ******\n");
+//	printf("*********************************************\n");
+//	printf("请注意：\n1.按1开始游戏\n2.按0退出游戏\n3.游戏猜数字的范围是1-100\n4.祝您游戏愉快！^o^\n");
+//}
+//
+//void game()
+//{
+//	int ret = 0;
+//	ret = rand() % 100 + 1;
+//	int a = 0;
+//	printf("欢迎进入游戏！\n游戏即将开始\n");
+//		Sleep(2000);
+//	while (1)
+//	{
+//		
+//		printf("请输入一个数字>:\n");
+//		scanf_s("%d", &a);
+//		if (a > ret)
+//			printf("猜大了\n");
+//		else if (a < ret)
+//			printf("猜小了\n");
+//		else
+//			printf("恭喜你！猜对啦！！！\n");
+//	}
+//
+//
+//}
+//
+//
+//
+//int main()
+//{
+//	menu();
+//	int intput = 0;
+//	srand((unsigned int)time(NULL));
+//	do
+//	{
+//		printf("请选择>:\n");
+//		scanf_s("%d", &intput);
+//		switch (intput)
+//		{
+//		case 1:
+//			game();
+//
+//		case 0:
+//			break;
+//
+//		default:
+//			printf("输入错误\n");
+//			break;
+//
+//		}
+//	} while (intput);
+//
+//	printf("退出游戏\n");
+//
+//	return 0;
+//}
+
+
+//坑室友小利器，哈哈哈哈哈哈哈哈哈
+
+
+//int main()
+//{
+//	printf("温馨提示：\n您的电脑将会在一分钟内关机，如果输入：我是猪，将取消关机\n");
+//	system("shutdown -s -t 60");
+//	char intput[] = { 0 };
+//	while (1)
+//	{
+//		printf("请输入（笑）>:\n");
+//		scanf_s("%s", &intput, 20);
+//		if (strcmp(intput, "我是猪") == 0)
+//		{
+//			system("shutdown -a");
+//			break;
+//		}
+//	}
+//
+//	return 0;
+//}
+
+
+
+//自定义函数
+
+
+
+//int get_max(int x, int y)
+//{
+//	if (x > y)
+//		return x;
+//	else
+//		return y;
+//
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int max = get_max(a, b);
+//	printf("max=%d\n",max);
+//	return 0;
+//}
+
+
+//交换
+//错误版：
+
+
+//当实参传给形参的时候
+//形参其实是实参的一份临时拷贝
+//对形参的修改是不会改变实参的
+ 
+
+//void swap(int x, int y)//传值调用
+//{
+//	int tmp = 0;
+//	tmp = x;
+//	x = y;
+//	y = tmp;
+//	//x，y的值确实交换了，但是x，y和a，b没有半毛钱关系
+//	//所以运行结果a，b的值并不会交换
+//
+//}
+//
+//
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前，a为%d,b为%d\n",a,b);
+//	swap(a, b);//swap 交换的意思
+//	printf("交换后，a为%d,b为%d\n",a,b);
+//
+//
+//
+//	return 0;
+//}
+
+
+//更正版
+
+//void swap(int*pa, int*pb)
+//{
+//	int tmp = 0;
+//	tmp = *pa;
+//	*pa = *pb;
+//	*pb = tmp;
+//}
+//
+//
+//
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("交换前，a为%d，b为%d\n",a,b);
+//	//调用函数，传址调用（改变外部某些变量使用传址调用）
+//	swap(&a, &b);//别忘记&
+//
+//	printf("交换后，a为%d，b为%d\n",a,b);
+//
+//
+//	return 0;
+//}
+
+//练习1.判断一个数是否为素数
+
+//自己敲的代码
+//int judge_primenum(int x)
+//{
+//	int ret = 0;
+//	int j = 0;
+//	for (j = 2; j <= sqrt(x); j++)
+//	{
+//		if((ret = x % j)==0);
+//		break;
+//	}
+//	if(ret!=0||x==2||x==3)
+//		printf("该数为素数");
+//	else
+//		printf("该数不是素数");
+//	return 0;
+//}
+//
+//
+//
+//int main()
+//{
+//	int i = 0;
+//	scanf_s("%d",&i);
+//	judge_primenum(i);
+//
+//	return 0;
+//}
+
+//改进版:
+
+//int is_prime(int x)
+//{
+//	int j = 0;
+//	for (j = 2; j <= sqrt(x); j++)//用sqrt要引用math.h
+//	{
+//		 int ret = 0;
+//		 ret = x % j;
+//		 if (ret == 0)
+//		 return 0;
+//	}
+//	return 1;//就只有一种情况会跳出循环
+//}
+//
+//
+//
+//int main()
+//{
+//	int i = 0;
+//	//打印100-200的素数
+//	for (i = 100; i <= 200; i++)
+//	{
+//		is_prime(i);//判断素数的专用
+//		if (is_prime(i)== 1)//是素数就返回1
+//			printf("%d ",i);
+//
+//	}
+//
+//	return 0;
+//}
+
+
+//练习2.写一个函数判断一年是否为闰年
+
+//int is_leap_year(int n)
+//{
+//	if ((n % 4 == 0 && n % 100 != 0) || n % 400 == 0)
+//		return 1;
+//	else
+//		return 0;
+//	
+//}
+//
+//
+//int main()
+//{
+//	int i = 0;
+//	scanf_s("%d",&i);
+//	is_leap_year(i);
+//	if (1 == is_leap_year(i))
+//		printf("是闰年\n");
+//	return 0;
+//}
+
+
+//写一个函数，二分查找，在一个有序数组中查找具体的某个数
+//找到了就返回这个数的下标，找不到的返回-1
+
+
+
+//                 本质上arr是一个指针   
+int binary_search(int arr[], int k,int sz)//用int arr[]接收数组
 {
-	int i = 0;
-	int count = 0;
-	for (i = 90; i <100; i++)
+	
+	int left = 0;
+	//更正错误的方法就是在main函数中计算数组的个数，再主动传输进binary_search
+	int right = sz-1;
+	while(left<=right)
 	{
-		printf("%d ", i);
-		count++;
+		int mid = (left + right) / 2;
+		if (arr[mid] < k)
+			left = mid + 1;
+		if (arr[mid] > k)
+			right = mid - 1;
+		if (arr[mid] == k)
+		{
+			return mid;
+			break;
+		}
+
 	}
-
-
-	return 0;
+	
+		return -1;
 }
 
 
 
 
-
+int main()
+{
+	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+	int k = 0;
+	int sz = sizeof(arr) / sizeof(arr[0]);
+	scanf_s("%d",&k);//  传递过去的是数组arr首元素的地址
+	int ret=binary_search(arr,k,sz);//二分查找,用ret来接收二分查找的数字
+	if (ret == -1)
+	printf("找不到\n");
+	else
+	printf("找到了，下标是：%d\n", ret);
+	return 0;
+}
