@@ -1456,49 +1456,184 @@
 //}
 
 
-//写一个函数，二分查找，在一个有序数组中查找具体的某个数
+//练习3.写一个函数，二分查找，在一个有序数组中查找具体的某个数
 //找到了就返回这个数的下标，找不到的返回-1
 
 
 
-//                 本质上arr是一个指针   
-int binary_search(int arr[], int k,int sz)//用int arr[]接收数组
-{
-	
-	int left = 0;
-	//更正错误的方法就是在main函数中计算数组的个数，再主动传输进binary_search
-	int right = sz-1;
-	while(left<=right)
-	{
-		int mid = (left + right) / 2;
-		if (arr[mid] < k)
-			left = mid + 1;
-		if (arr[mid] > k)
-			right = mid - 1;
-		if (arr[mid] == k)
-		{
-			return mid;
-			break;
-		}
+////                 本质上arr是一个指针   
+//int binary_search(int arr[], int k,int sz)//用int arr[]接收数组
+//{
+//	
+//	int left = 0;
+//	//更正错误的方法就是在main函数中计算数组的个数，再主动传输进binary_search
+//	int right = sz-1;
+//	while(left<=right)
+//	{
+//		int mid = (left + right) / 2;
+//		if (arr[mid] < k)
+//			left = mid + 1;
+//		if (arr[mid] > k)
+//			right = mid - 1;
+//		if (arr[mid] == k)
+//		{
+//			return mid;
+//			break;
+//		}
+//
+//	}
+//	
+//		return -1;
+//}
+//
+//
+//
+//
+//int main()
+//{
+//	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
+//	int k = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	scanf_s("%d",&k);//  传递过去的是数组arr首元素的地址
+//	int ret=binary_search(arr,k,sz);//二分查找,用ret来接收二分查找的数字
+//	if (ret == -1)
+//	printf("找不到\n");
+//	else
+//	printf("找到了，下标是：%d\n", ret);
+//	return 0;
+//}
 
-	}
-	
-		return -1;
-}
+//练习四
+
+//void Add(int* p)
+//{
+//	(*p)++;
+//}
+//
+//int main()
+//{
+//	int num = 0;
+//	Add(&num);
+//	printf("%d ", num);
+//	return 0;
+//}
+
+//练习5.将大写字母转化为小写字母，将小写转大写，数字就不打印
+
+//int main()
+//{
+//	char i = 0;
+//	scanf_s("%c",&i,20);
+//	if (i >= 65 && i <= 90)
+//	{
+//		i = i + 32;
+//		printf("%c", i);
+//	}
+//	else if (i >= 97 && i <= 122)
+//	{
+//		i = i - 32;
+//		printf("%c", i);
+//	}
+//	else
+//		;
+//
+//	return 0;
+//}
 
 
+//int main()
+//{
+//	int len = 0;
+//	//1.
+//	//len = strlen("abc");
+//	//printf("%d\n", len);
+//	//2.
+//	printf("%d\n",strlen("abc"));//链式访问：将一个函数的返回值作为另一个函数的参数
+//	return 0;
+//}
+
+//int main()
+//{   //              返回值为1       返回值为2
+//	printf("%d", printf("%d", printf("%d", 43)));//链式访问
+//	//打印结果为4321
+//	return 0;
+//}
+
+////函数声明（一般放在头文件中），先声明再使用
+//
+//int Add(int, int);
+//
+//
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	int sum = 0;
+//	//函数调用
+//	sum = Add(a, b);
+//	printf("%d\n", sum);
+//	return 0;
+//}
+//
+//
+////函数定义（一般放在源文件里），函数的实现
+//int Add(int x, int y)
+//{
+//	int z = x + y;
+//	return z;
+//}
 
 
-int main()
-{
-	int arr[] = { 1,2,3,4,5,6,7,8,9,10 };
-	int k = 0;
-	int sz = sizeof(arr) / sizeof(arr[0]);
-	scanf_s("%d",&k);//  传递过去的是数组arr首元素的地址
-	int ret=binary_search(arr,k,sz);//二分查找,用ret来接收二分查找的数字
-	if (ret == -1)
-	printf("找不到\n");
-	else
-	printf("找到了，下标是：%d\n", ret);
-	return 0;
-}
+////作业1.交换两个数
+//
+//void swap(int *x, int* y)
+//{
+//	int tmp = 0;
+//	tmp = *x;
+//	*x = *y;
+//	*y = tmp;
+//
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	printf("%d %d\n", a, b);
+//	swap(&a, &b);
+//	printf("%d %d\n", a, b);
+//
+//	return 0;
+//}
+
+
+//作业2.实现一个函数，打印乘法口诀表
+
+//void mul(int x)
+//{
+//	int j = 0;
+//	int ret = 0;
+//    int a=0;
+//	for (a = 1;a<=x; a++)
+//	{
+//		for (j = 1; j <= a; j++)
+//		{
+//			ret = a * j;
+//			printf("%d*%d=%-3d ",a,j,ret);
+//		}
+//		printf("\n");
+//	}
+//}
+//
+//
+//int main()
+//{
+//	int i = 0;
+//	scanf_s("%d",&i);
+//	mul(i);
+//	
+//	return 0;
+//}
+
+
