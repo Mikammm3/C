@@ -2037,10 +2037,80 @@
 //}
 
 
-int main()
-{
+
+//练习1.交换两个数，不使用第三变量
+
+
+//int main()
+//{
+//	int a = 3;
+//	int b = 5;
+//	//1.加减法
+//	//a = a + b;//8
+//	//b = a - b;//3
+//	//a = a - b;//5
+//	 
+//	
+//	//2.按位异或   a=011
+//	//            b=101    a^b=110 a
+//
+//	a = a ^ b;//110
+//	b = a ^ b;//011
+//	a = a ^ b;//101
+//	printf("交换后：a=%d,b=%d\n",a,b);
+//	return 0;
+//}
+
+
+//练习2.找出单身狗
+
+//方法1
+//int main()
+//{
+//	int arr[20] = { 1,2,3,4,5,1,2,3,4};
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	for (i = 0; i < sz; i++)
+//	{
+//		int count = 0;//计数器
+//		int j = 0;
+//		for (j = 0; j < sz; j++)
+//		{
+//			if (arr[i] == arr[j])
+//				count++;
+//
+//		}
+//		if (count == 1)
+//		{
+//			printf("单身狗：%d\n", arr[i]);
+//			break;
+//		}
+//	}
+//	
+//	return 0;
+//}
 
 
 
-	return 0;
-}
+
+////方法2.
+////a^a=0
+////0^a=a
+////a^0^a=a^a^0
+////a^a^b=b
+//
+//int main()
+//{
+//	int arr[20] = { 1,2,3,4,5,1,2,3,4 };
+//	int i = 0;
+//	int sz = sizeof(arr) / sizeof(arr[0]);
+//	int ret = 0;
+//	for (i = 0; i < sz; i++)
+//	{
+//		ret = ret ^ arr[i];
+//
+//	}
+//	printf("单身狗：%d\n",ret);
+//
+//	return 0;
+//}
